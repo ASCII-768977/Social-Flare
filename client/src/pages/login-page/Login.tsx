@@ -34,6 +34,15 @@ export const Login = () => {
         </Typography>
         <Form />
       </Box>
+      <Typography fontWeight="500" variant="h5" sx={{ m: '1.5rem' }}>
+        Hey, if you want quick try, you can use this account:
+        <br />
+        username: testuser@gmail.com
+        password: 1234
+        <br />
+        username: fakeman@gmail.com
+        password: 1234
+      </Typography>
     </Box>
   );
 };

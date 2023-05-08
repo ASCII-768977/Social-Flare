@@ -85,6 +85,7 @@ export const Form = () => {
 
     if (savedUser) {
       setPageType('login');
+      alert('User created. Please login.');
     }
   };
 
@@ -101,8 +102,16 @@ export const Form = () => {
       }
     );
     const loggedIn = await loggedInResponse.json();
+
     onSubmitProps.resetForm();
-    if (loggedIn) {
+
+    if (loggedIn.msg === 'Invalid credentials. ') {
+      alert('Invalid credentials. ');
+    }
+    if (loggedIn.msg === 'User does not exist. ') {
+      alert('User does not exist. ');
+    }
+    if (loggedInResponse.status === 200) {
       dispatch(
         setLogin({
           user: loggedIn.user,

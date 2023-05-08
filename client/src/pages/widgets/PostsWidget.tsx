@@ -12,7 +12,7 @@ export const PostsWidget = ({ userId, isProfile = false }: PostsWidgetProp) => {
   const token = useSelector((state: State) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch('http://localhost:8080/posts', {
+    const response = await fetch('https://social-flare.onrender.com/posts', {
       method: 'GET',
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -22,7 +22,7 @@ export const PostsWidget = ({ userId, isProfile = false }: PostsWidgetProp) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:8080/posts/${userId}/posts`,
+      `https://social-flare.onrender.com/posts/${userId}/posts`,
       {
         method: 'GET',
         headers: { Authorization: `Bearer ${token}` },

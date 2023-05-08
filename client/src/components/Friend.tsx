@@ -31,7 +31,7 @@ export const Friend = ({
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:8080/users/${_id}/${friendId}`,
+      `https://social-flare.onrender.com/users/${_id}/${friendId}`,
       {
         method: 'PATCH',
         headers: {

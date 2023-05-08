@@ -10,7 +10,7 @@ export const UserImage = ({ image, size = '60px' }: UserImageProp) => {
         width={size}
         height={size}
         alt="user"
-        src={`http://localhost:8080/assets/${image}`}
+        src={`https://social-flare.onrender.com/assets/${image}`}
       />
     </Box>
   );

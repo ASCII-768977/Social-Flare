@@ -13,6 +13,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Formik, FormikTouched, FormikErrors, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
+import toast from 'react-hot-toast';
 
 import { FlexBetween } from '../../components/FlexBetween';
 
@@ -72,7 +73,6 @@ export const Form = () => {
       formData.append(value, values[value]);
     }
     formData.append('picturePath', values.picture.name);
-
     const savedUserResponse = await fetch(
       'https://social-flare.onrender.com/auth/register',
       {
@@ -85,7 +85,7 @@ export const Form = () => {
 
     if (savedUser) {
       setPageType('login');
-      alert('User created. Please login.');
+      toast.success('User created. Please login.');
     }
   };
 
@@ -106,12 +106,12 @@ export const Form = () => {
     onSubmitProps.resetForm();
 
     if (loggedIn.msg === 'Invalid credentials. ') {
-      alert('Invalid credentials. ');
+      toast.error('Invalid credentials. ');
     }
     if (loggedIn.msg === 'User does not exist. ') {
-      alert('User does not exist. ');
+      toast.error('User does not exist. ');
     }
-    if (loggedInResponse.status === 200) {
+    if (loggedIn.token) {
       dispatch(
         setLogin({
           user: loggedIn.user,
@@ -119,6 +119,7 @@ export const Form = () => {
         })
       );
       navigate('/home');
+      toast.success('Logged in.');
     }
   };
 

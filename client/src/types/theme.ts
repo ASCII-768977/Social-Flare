@@ -1,5 +1,5 @@
 // types/theme.ts
-import { Palette, PaletteOptions, TypographyStyle } from '@mui/material/styles';
+import { TypographyStyle } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface TypeBackground {

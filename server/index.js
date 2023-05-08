@@ -18,7 +18,7 @@ import { connectDB } from './connectDB.js';
 // import Post from './models/Post.js';
 // import { users, posts } from './data/index.js';
 
-// Configurations
+/* Configurations */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config();
@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
-// File Storage
+/* File Storage */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/assets');
@@ -43,16 +43,16 @@ const storage = multer.diskStorage({
 });
 export const upload = multer({ storage });
 
-// Routes with files "upload.single("picture")" is middleware
+/* Routes with files "upload.single("picture")" is middleware */
 app.post('/auth/register', upload.single('picture'), register);
 app.post('/posts', verifyToken, upload.single('picture'), createPost);
 
-// Routes
+/* Routes */
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
 
-// Server Setup
+/* Server Setup */
 const PORT = process.env.PORT || 8081;
 
 const startServer = async () => {

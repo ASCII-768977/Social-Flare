@@ -2,4 +2,4 @@
 
 ### ***You can visit the website here: https://social-flare.netlify.app/***
 
-![Screenshot](public/screenshot.png)
+![Screenshot](client/public/screenshot.png)
